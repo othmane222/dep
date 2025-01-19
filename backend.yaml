@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ayoub-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ayoub-service
+  template:
+    metadata:
+      labels:
+        app: ayoub-service
+    spec:
+      containers:
+        - name: ayoub-service
+          image: othmanemaarad442/projet-angular-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ayoub-service
+spec:
+  selector:
+    app: ayoub-service
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+  type: LoadBalancer
