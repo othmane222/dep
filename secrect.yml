@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: basic-auth-users-secret
+type: Opaque
+stringData:
+  users: |
+    user1:$apr1$rKM7TQZQ$FUFmIklAwWBy80pHFcZlM0
+    user2:$apr1$elAEjLXh$l5NtPMsZ5YmZhjKPJ5u4r/

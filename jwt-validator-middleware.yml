@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: my-plugindemo
+    namespace: default
+spec:
+    plugin:
+        plugindemo:
+            Headers:
+                X-Demo: test
+                X-URL: '{{URL}}'

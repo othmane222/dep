@@ -1,10 +1,9 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: traefik-deployment
   labels:
     app: traefik
-
 spec:
   replicas: 1
   selector:
@@ -21,8 +20,13 @@ spec:
           image: traefik:v3.3
           args:
             - --api.insecure
+            - --providers.kubernetescrd=true
             - --providers.kubernetesingress
             - --entrypoints.web.address=:81
+            - --metrics.datadog.addentrypointslabels
+            - --tracing
+            - --accesslog
+            
           ports:
             - name: web
               containerPort: 81
