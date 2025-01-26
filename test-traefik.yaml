@@ -17,16 +17,12 @@ spec:
       serviceAccountName: test-account
       containers:
         - name: traefik
-          image: traefik:v3.3
+          image: traefik:v2.9.6  # Updated to v2.9.6
           args:
             - --api.insecure
             - --providers.kubernetescrd=true
             - --providers.kubernetesingress
             - --entrypoints.web.address=:81
-            - --metrics.datadog.addentrypointslabels
-            - --tracing
-            - --accesslog
-            
           ports:
             - name: web
               containerPort: 81

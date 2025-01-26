@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: my-traefik-cluster-ratelimit
+    namespace: default
+spec:
+    plugin:
+        traefik-cluster-ratelimit:
+            average: "100"
+            burst: "200"

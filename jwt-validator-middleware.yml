@@ -1,11 +1,12 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-    name: my-plugindemo
-    namespace: default
+  name: my-jwtvalidator
+  namespace: default
 spec:
-    plugin:
-        plugindemo:
-            Headers:
-                X-Demo: test
-                X-URL: '{{URL}}'
+  plugin:
+    name: my-jwtvalidator
+    config:
+      secretKey: "my-dummy-secret-key"  # Replace with your actual secret key
+      authHeader: "Authorization"        # The HTTP header containing the token
+      algo: "HS256"                      # Algorithm used in the token
