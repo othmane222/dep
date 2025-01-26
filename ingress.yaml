@@ -23,3 +23,5 @@ spec:
         #   namespace: default
           - name: my-jwt-middleware
             namespace: default
+          # - name: my-traefik-cluster-ratelimit
+          #   namespace: default 

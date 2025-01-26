@@ -29,10 +29,16 @@ spec:
             # - --experimental.plugins.headerauthentication.version=v1.0.3
             - --experimental.plugins.jwt-middleware.modulename=github.com/tpaulus/jwt-middleware
             - --experimental.plugins.jwt-middleware.version=v1.1.13
+            # Enable access logs
+            - --accesslog=true
+            - --accesslog.fields.DefaultMode=keep
             - --log.level=DEBUG
             # Enable Prometheus metrics
             - --metrics.prometheus=true
             - --metrics.prometheus.addentrypointslabels=true
+            #rate limiter
+            # - --experimental.plugins.traefik-cluster-ratelimit.modulename=github.com/nzin/traefik-cluster-ratelimit
+            # - --experimental.plugins.traefik-cluster-ratelimit.version=v1.1.1
           ports:
             - name: web
               containerPort: 81
