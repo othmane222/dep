@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-middleware
+  namespace: default
+spec:
+  redirectRegex:
+    regex: ^.*$
+    replacement: http://localhost:81/ayoub
+    permanent: true

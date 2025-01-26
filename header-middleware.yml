@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: my-headerauthentication
+    namespace: default
+spec:
+    plugin:
+        headerauthentication:
+            Header:
+                key: 123test
+                name: X-API-KEY
+
+# test : curl -H "X-API-KEY: 123test" http://localhost:81/ayoub

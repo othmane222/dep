@@ -5,5 +5,4 @@ metadata:
   namespace: default
 type: Opaque
 data:
-  users: |
-    YWRtaW46YWRtaW4=
+  users:  "b3RobWFuZTpvdGhtYW5l"

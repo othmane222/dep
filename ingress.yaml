@@ -7,11 +7,19 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`ayoub.local`)
+    - match: Host(`localhost`) && PathPrefix(`/ayoub`)
       kind: Rule
       services:
         - name: ayoub-service
           port: 9090
       middlewares:
-        - name: basic-auth-middleware
-          namespace: default
+        # - name: basic-auth-middleware
+        #   namespace: default
+        # - name: my-headerauthentication
+        #   namespace: default
+          # - name: my-traefik-subsonic-basicauth
+          #   namespace: default
+        # - name: jwt-validator-middleware
+        #   namespace: default
+          - name: my-jwt-middleware
+            namespace: default

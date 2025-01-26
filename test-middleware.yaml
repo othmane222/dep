@@ -6,4 +6,3 @@ metadata:
 spec:
   basicAuth:
     secret: basic-auth-secret
-    headerField: X-My-Auth-Header

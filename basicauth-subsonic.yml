@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: my-traefik-subsonic-basicauth
+    namespace: default
+spec:
+    plugin:
+        traefik-subsonic-basicauth:
+            auth: proxy
+      
+
+#test : curl -u username:password http://localhost:81/ayoub

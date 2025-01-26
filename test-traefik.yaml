@@ -23,6 +23,16 @@ spec:
             - --providers.kubernetescrd=true
             - --providers.kubernetesingress
             - --entrypoints.web.address=:81
+            # - --experimental.plugins.traefik-subsonic-basicauth.modulename=github.com/crazygolem/traefik-subsonic-basicauth
+            # - --experimental.plugins.traefik-subsonic-basicauth.version=v0.2.0
+            # - --experimental.plugins.headerauthentication.modulename=github.com/omar-shrbajy-arive/headerauthentication
+            # - --experimental.plugins.headerauthentication.version=v1.0.3
+            - --experimental.plugins.jwt-middleware.modulename=github.com/tpaulus/jwt-middleware
+            - --experimental.plugins.jwt-middleware.version=v1.1.13
+            - --log.level=DEBUG
+            # Enable Prometheus metrics
+            - --metrics.prometheus=true
+            - --metrics.prometheus.addentrypointslabels=true
           ports:
             - name: web
               containerPort: 81

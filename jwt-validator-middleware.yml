@@ -1,12 +1,23 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: my-jwtvalidator
+  name: my-jwt-middleware
   namespace: default
 spec:
   plugin:
-    name: my-jwtvalidator
-    config:
-      secretKey: "my-dummy-secret-key"  # Replace with your actual secret key
-      authHeader: "Authorization"        # The HTTP header containing the token
-      algo: "HS256"                      # Algorithm used in the token
+    jwt-middleware:
+      secret: ThisIsAPresharedSecret
+
+# test : 
+# ---- payload----
+#  {
+#   "sub": "1234567890",
+#   "name": "othmane",
+#   "iat": 1516239022
+# }
+# ----- signature -------
+# ThisIsAPresharedSecret
+# ----------command---------
+# curl -H "Authorization: Bearer <new_token>" http://localhost:81/ayoub/api/v1/users
+
+
