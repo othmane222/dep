@@ -13,8 +13,10 @@ spec:
 #  {
 #   "sub": "1234567890",
 #   "name": "othmane",
-#   "iat": 1516239022
+#   "iat": 1516239022,
+#   "exp": 1738016117
 # }
+
 # ----- signature -------
 # ThisIsAPresharedSecret
 # ----------command---------

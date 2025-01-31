@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: my-keycloakopenid
+    namespace: default
+spec:
+    plugin:
+        keycloakopenid:
+            ClientID: backend-client
+            ClientSecret: G7KuyoHb91eRRil3zZqwSZQuDnZjt5GJ
+            KeycloakRealm: othmane  
+            KeycloakURL: http://localhost:9094
+            Scope: openid
+            # TokenCookieName: AUTH_TOKEN
+            UseAuthHeader: "true"

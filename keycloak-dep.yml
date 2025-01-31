@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:22.0.0
+        args:
+          - start-dev
+        env:
+        - name: DB_VENDOR
+          value: postgres
+        - name: DB_ADDR
+          value: keycloak-postgres
+        - name: DB_DATABASE
+          value: keycloak
+        - name: DB_USER
+          value: keycloak
+        - name: DB_PASSWORD
+          value: keycloakpassword
+        - name: KEYCLOAK_ADMIN
+          value: admin
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          value: adminpassword
+        ports:
+        - containerPort: 8080 # Corrected container port
+        volumeMounts:
+        - name: keycloak-data
+          mountPath: /opt/keycloak/data
+      volumes:
+      - name: keycloak-data
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 9094
+    targetPort: 8080 # Corrected targetPort to match containerPort
+  selector:
+    app: keycloak
