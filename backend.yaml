@@ -14,10 +14,13 @@ spec:
     spec:
       containers:
         - name: ayoub-service
-          image: othmanemaarad442/projet-angular-backend:latest
+          image: othmanemaarad442/projet-angular-backend:3
           imagePullPolicy: Always
           ports:
             - containerPort: 9090
+          env:
+            - name: issuer_url
+              value: "http://192.168.1.8:30094/realms/othmane"
 ---
 apiVersion: v1
 kind: Service

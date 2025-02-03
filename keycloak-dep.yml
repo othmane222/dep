@@ -34,7 +34,7 @@ spec:
         - name: KEYCLOAK_ADMIN_PASSWORD
           value: adminpassword
         ports:
-        - containerPort: 8080 # Corrected container port
+        - containerPort: 8080
         volumeMounts:
         - name: keycloak-data
           mountPath: /opt/keycloak/data
@@ -47,9 +47,10 @@ kind: Service
 metadata:
   name: keycloak
 spec:
-  type: LoadBalancer
+  type: NodePort  # Changed from LoadBalancer to NodePort
   ports:
   - port: 9094
-    targetPort: 8080 # Corrected targetPort to match containerPort
+    targetPort: 8080
+    nodePort: 30094  # Exposes Keycloak on this port on all cluster nodes
   selector:
     app: keycloak
