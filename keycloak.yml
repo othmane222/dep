@@ -6,10 +6,10 @@ metadata:
 spec:
     plugin:
         keycloakopenid:
-            ClientID: backend-client
-            ClientSecret: G7KuyoHb91eRRil3zZqwSZQuDnZjt5GJ
-            KeycloakRealm: othmane
-            KeycloakURL: http://localhost:9094
+            ClientID: test-client
+            ClientSecret: 4YcdkUM8IY7dsprbQ6k0TrDanVkWu9FH
+            KeycloakRealm: master
+            KeycloakURL: http://localhost:30094
             Scope: openid
             # TokenCookieName: AUTH_TOKEN
-            UseAuthHeader: "true"
+            UseAuthHeader: "false"

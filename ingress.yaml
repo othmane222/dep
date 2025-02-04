@@ -19,3 +19,18 @@ spec:
           #   namespace: default
           # - name: my-traefik-cluster-ratelimit
           #   namespace: default
+          # Route for Token Generation (Keycloak Proxy)
+    - match: PathPrefix(`/token`)
+      kind: Rule
+      services:
+        - name: keycloak
+          port: 8080
+          namespace: default
+      middlewares:
+        - name: token-rewrite
+          namespace: default
+    - match: PathPrefix(`/realms/`)
+      kind: Rule
+      services:
+        - name: keycloak
+          port: 8080

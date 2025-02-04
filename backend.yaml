@@ -20,7 +20,8 @@ spec:
             - containerPort: 9090
           env:
             - name: issuer_url
-              value: "http://192.168.1.8:30094/realms/othmane"
+              value: "http://192.168.1.4:81/realms/othmane"
+            
 ---
 apiVersion: v1
 kind: Service

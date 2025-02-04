@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: token-rewrite
+  namespace: default
+spec:
+  replacePathRegex:
+    regex: "^/token"
+    replacement: "/realms/othmane/protocol/openid-connect/token"

@@ -49,7 +49,7 @@ metadata:
 spec:
   type: NodePort  # Changed from LoadBalancer to NodePort
   ports:
-  - port: 9094
+  - port: 8080
     targetPort: 8080
     nodePort: 30094  # Exposes Keycloak on this port on all cluster nodes
   selector:
