@@ -13,13 +13,12 @@ spec:
         - name: ayoub-service
           port: 9090
       middlewares:
-          # - name: my-keycloakopenid
+          # - name: keycloak-jwt-verifier
           #   namespace: default
           # - name: my-jwt-middleware
           #   namespace: default
-          # - name: my-traefik-cluster-ratelimit
-          #   namespace: default
-          # Route for Token Generation (Keycloak Proxy)
+          - name: jwt-signature-validation
+            namespace: default
     - match: PathPrefix(`/token`)
       kind: Rule
       services:

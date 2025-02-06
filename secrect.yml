@@ -1,8 +1,12 @@
+# keycloak-pubkey-secret.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: basic-auth-secret
+  name: keycloak-pubkey
   namespace: default
 type: Opaque
-data:
-  users:  "b3RobWFuZTpvdGhtYW5l"
+stringData:
+  public-key.pem: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwczwDvnpNtCgULKNe7oI35u5SQSZNM67QIXV+0mNics5OB1goedZE/HCM9HGto8CN2GQ3tncW1jI1lpU2WyPyTUUMzyLRtseaK0DUzZPy/WKDTGZyG5lhCrIPdZVhEBNPgrYj6FjKrVggwV0Hus6a1eVGMIVkX25YpFAH6sHmemrCVPbzgUcHBBDF9il18gTERXwz/udMwOAYeAkZhC/7oRe9pArr5aU8kubRwPam2WmqxaMBMQpfcYiBh3UiJlkjkG0aZxOmljeI0mpYH4H+HJU/IyAw1J2yJAgjq773/gPpQCLmCjqinSQWXvuFCpNVs6vcZ0dCXh1N5Ky4wAgzQIDAQAB
+    -----END PUBLIC KEY-----

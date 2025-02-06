@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+    name: jwt-signature-validation
+    namespace: default
+spec:
+    plugin:
+        traefik-jwt-plugin:
+            Keys:
+                - |
+                  -----BEGIN PUBLIC KEY-----
+                  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0Ppi3lIz7mPt6wT4U45oD7THAWE1wa3MTK16ybE1vCAc2dVSLbd0eecVrPChZ+UuprIIPVGOEFFMvB79Ian43ElH1ld7+lrlCajgtgJ5ilvKtP9Q1xTOto8OzNt9f4LkWXLTcLzYsKJ5fMEnNIm3+Z4QBPwuDqVJaTdI1RXR4GvyX4ZUen9Okw2g0cK07FK+EWOj8x4fYWmDg8il5oAv0XHgJmx/Kaemu9yEcXUMMp8p/iwKu8x/EQeMBwVgLH+U3SWOLXGUQO4j/QJCSBdqTsqVJvrqVoPMnJHWWYeBQCs34SGANu8ldvvBXDeYQ0/k6ormyMHVYD9opXlt/qnIhQIDAQAB
+                  -----END PUBLIC KEY-----

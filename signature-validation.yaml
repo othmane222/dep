@@ -1,0 +1,16 @@
+# jwt-auth.yaml
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: keycloak-jwt-verifier
+  namespace: default
+spec:
+  plugin:
+    traefik-request-signature-verifier:
+      headers:
+        - Authorization  # Validate the JWT from the Authorization header
+      secretKey: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0aklYEmlgIVzjL5Ion8zzC4e8XN4T44F1ejuSgWP+yDqKANwtS4feVjhvohA8uhijfia6uwsqOd5VhU9HTMw71PXChqC545qUTHmJ1ZfVf7SwkBrTnYjkbHFA8kWwBQZ0tcpEhAQqGsawQhC+AhP8Rj1lBEdS+F9OKBKu5oWq9xpRjDmaYcvqfp92GIUQfaF2FJjgJ8ajcXtxCPIo4RwU/Stt6lUzTWx0xEBbKVtMwNS0eWsJSbzyr9ZW12PnWM8hSOnVaDk0HyZ38bPOriHd56X9YXB5+0y363jkEYGJvGEuRZAQ31SCsHFYtNgiPw3SbwiXbT+PY10e0DsbqpWyQIDAQAB
+        -----END PUBLIC KEY-----
+      # Optional: Add other headers like X-Date if needed
